@@ -373,12 +373,12 @@ $(function () {
 //Quiz Start Section
 
         const questions = [
-            { question: "Does your skin get oily during the day?", options: ["Almost every day", "Only in certain areas or seasons", "It stays mostly dry", "It feels balanced most of the time", "In certain spots but also dry in others", "Often with breakouts"] },
-            { question: "How often does your skin feel dry or dehydrated?", options: ["Generally all year-round", "More in winter but normal in summer", "It mostly feels oily", "It stays balanced most of the time", "When irritated by products", "When using acne treatments"] },
-            { question: "How often do you get breakouts?", options: ["Multiple every day", "A few times a week", "A few times a month", "Rarely – Maybe once a month", "Occasionally – Only when skin is oily", "Occasionally – When my skin gets too dry"] },
-            { question: "How would you describe your pores?", options: ["Large and visible most of the time", "Small and barely visible", "Noticeable in certain areas only", "Average size and not very noticeable", "Small but often irritated", "Enlarged when breaking out"] },
-            { question: "How does your skin react to new products or environments?", options: ["Very easily, it’s sensitive", "Reacts with certain products", "Doesn’t react", "Reacts when products are too heavy", "Reacts when skin gets too dry", "Reacts when using acne products"] },
-            { question: "How often do you need moisturizer?", options: ["Heavy moisturizer all year-round", "Medium moisturizer in winter, lighter in summer", "Lightweight moisturizer or none at all", "Lightweight moisturizer for balance", "Gentle moisturizer to avoid irritation", "Oil-free moisturizer for acne care"] }
+            { question: "Does your skin get oily during the day?", options: ["Yes, often", "Yes, often with breakouts", "Only in certain seasons", "Only in some spots", "No, not at all"] },
+            { question: "How often does your skin feel dry or dehydrated?", options: ["Very often", "Only in certain seasons", "Only when using a new product", "Not often"] },
+            { question: "How often do you get breakouts?", options: ["Multiple times a day", "A few times a week", "A few times a month", "Only when using a new product", "Never"] },
+            { question: "How would you describe your pores?", options: ["Large and visible most of the time", "Large only in some spots", "Small and barely visible"] },
+            { question: "How does your skin react to products?", options: ["Very reactive", "Reactive with some products", "Not reactive"] },
+            { question: "How often do you need moisturizer?", options: ["Heavy moisturizer all year round", "Heavier in winter, lighter in summer", "Light moisturizer all year round", "Not often or none at all"] }
         ];
 
         let currentQuestionIndex = 0;
@@ -429,13 +429,13 @@ $(function () {
 
         function determineSkinType() {
             const skinTypeMap = {
-                "Oily": ["Almost every day", "It mostly feels oily", "Multiple every day", "Large and visible most of the time", "Reacts when products are too heavy", "Oil-free moisturizer for acne care"],
-                "Dry": ["It stays mostly dry", "Generally all year-round", "Occasionally – When my skin gets too dry", "Small but often irritated", "Reacts when skin gets too dry", "Heavy moisturizer all year-round"],
-                "Combination": ["In certain spots but also dry in others", "More in winter but normal in summer", "Occasionally – Only when skin is oily", "Noticeable in certain areas only", "Reacts with certain products", "Lightweight moisturizer for balance"],
-                "Balanced": ["It feels balanced most of the time", "It stays balanced most of the time", "Rarely – Maybe once a month", "Average size and not very noticeable", "Doesn’t react", "Medium moisturizer in winter, lighter in summer"]
+                "The Sebum Slayer (Oily Skin)": ["Yes, often", "Yes, often with breakouts", "Large and visible most of the time"],
+                "The Sebum Slayer (Oily Skin)": ["Very often", "Only when using a new product", "Heavy moisturizer all year round"],
+                "The Sebum Slayer (Oily Skin)": ["Only in certain seasons", "Only in some spots", "Heavier in winter, lighter in summer"],
+                "The Sebum Slayer (Oily Skin)": ["No, not at all", "Not often", "Light moisturizer all year round"]
             };
 
-            let resultSkinType = "Unknown";
+            let resultSkinType = "The Sebum Slayer (Oily Skin)";
             for (let type in skinTypeMap) {
                 if (skinTypeMap[type].some(option => answers.includes(option))) {
                     resultSkinType = type;
@@ -449,5 +449,13 @@ $(function () {
 
         document.getElementById('prev-button').addEventListener('click', prevQuestion);
         document.getElementById('retry-button').addEventListener('click', () => location.reload());
+        document.getElementById('discount-button').addEventListener('click', () => {
+            document.getElementById('popup-overlay').style.display = 'block';
+            document.getElementById('discount-popup').style.display = 'block';
+        });
+        document.getElementById('close-popup').addEventListener('click', () => {
+            document.getElementById('popup-overlay').style.display = 'none';
+            document.getElementById('discount-popup').style.display = 'none';
+        });
 
         loadQuestion();

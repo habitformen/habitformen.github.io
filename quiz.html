@@ -71,7 +71,7 @@
       <!-- header section end -->
       <!-- Quiz section start -->
     <div class="quiz-container">
-        <h2>Know your Skin type</h2>
+        <h2>Know your Skin Warrior</h2>
         <div class="progress-bar-container">
             <div class="progress-bar" id="progress-bar"></div>
         </div>
@@ -84,11 +84,35 @@
             <button id="next-button" class="btn btn-primary mt-3">Next Question</button>
         </div>
         <div id="result" class="result">
-            <p>Your skin type is: <span id="skin-type"></span></p>
+            <p><strong>Your skin warrior is: <span id="skin-type"></span></strong></p>
+            <img src="images/oily.png" alt="Skin Type Image">
+			<p align="left"> Your skin produces extra sebum, making you shine (literally). You’re resilient but often battle breakouts and clogged pores.<br><br>
+
+			<strong>Strengths:</strong> <br>
+			✅ Slower aging <br>
+			✅ Natural skin barrier protection <br><br>
+
+			<strong>Weaknesses:</strong><br>
+			❌Prone to acne <br>
+			❌Blackheads<br>
+			❌Enlarged pores<br><br>
+
+			<strong>Strategy:</strong> <br>
+
+			⚔Niacinamide – Your shield, defending against excess oil, tightening pores, and keeping skin calm under pressure.<br>
+			⚔Salicylic Acid (BHA) – Your blade, cutting through clogged pores, clearing blackheads, and preventing breakouts.<br>
+			⚔Zinc PCA – Your armor, reinforcing skin’s defenses by regulating oil and fighting off acne-causing bacteria.</p>
             <button id="retry-button" class="btn btn-secondary">Retry Quiz</button>
+            <button id="discount-button" class="btn btn-primary">Discount Code</button>
         </div>
     </div>
-
+    <!-- Popup HTML -->
+    <div class="popup-overlay" id="popup-overlay"></div>
+    <div class="popup" id="discount-popup">
+        <p><strong>Congratulations on finishing the quiz! As promised, here's your discount code:</strong></p>
+        <h3>VX567D3</h3>
+        <button class="btn btn-secondary" id="close-popup">Close</button>
+    </div>
       <!-- footer section start -->
       <div class="footer_section layout_padding">
          <div class="container">
